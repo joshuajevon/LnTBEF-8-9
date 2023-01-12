@@ -45,9 +45,8 @@
         </div>
       </nav>
 
-    <h1>Show Data</h1>
-
     <div class="m-5">
+        <h1>Show Data</h1>
         @foreach ( $books as $book )
         <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
@@ -64,7 +63,7 @@
                     @method('delete')
                     <button class="btn btn-danger">Delete</button>
                 </form>
-                
+
             </div>
         </div>
     @endforeach

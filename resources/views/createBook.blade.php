@@ -18,10 +18,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link " aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/create-book">Create</a>
+                <a class="nav-link active" href="/create-book">Create</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,6 +47,7 @@
       </nav>
 
     <div class="m-5">
+      <h1>Create Data</h1>
         <form action="/store-book" method="POST">
             @csrf
             <div class="mb-3">
