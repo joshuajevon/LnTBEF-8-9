@@ -18,10 +18,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/create-book">Create</a>
+                <a class="nav-link" href="/create-book">Create</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +35,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" href="/create-category">Create Category</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -65,6 +65,14 @@
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Author</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" name="Author">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Category</label>
+                <select class="form-select" aria-label="Default select example" name="CategoryName">
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->CategoryName}}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

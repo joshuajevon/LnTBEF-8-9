@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Book</a>
@@ -46,31 +47,16 @@
       </nav>
 
     <div class="m-5">
-        <h1>Show Data</h1>
-        @foreach ( $books as $book )
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h2 class="card-title"> {{$book->Name}} </h2>
-                <h3 class="card-title"> {{$book->PublicationDate}} </h3>
-                <h4 class="card-title">Stok Buku:  {{$book->Stock}} </h4>
-                <p class="card-text">Penulis Buku: {{$book->Author}} </p>
-                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
-                <p class="card-text">Category: {{$book->category->CategoryName}} </p>
-
-                <a href="{{route('edit', $book->id)}}" class="btn btn-success">Edit</a>
-                <form action="{{route('delete', $book->id)}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger">Delete</button>
-                </form>
-
+      <h1>Create Category</h1>
+        <form action="/store-category" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="CategoryName">
             </div>
-        </div>
-    @endforeach
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
     </div>
-
-
 
 </body>
 </html>

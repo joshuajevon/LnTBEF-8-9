@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
 
     public function createBook(){
-        return view('createBook');
+        $categories = Category::all();
+        return view('createBook', compact('categories'));
     }
 
     public function storeBook(Request $request){
@@ -18,6 +20,7 @@ class BookController extends Controller
             'PublicationDate' => $request->PublicationDate,
             'Stock' => $request->Stock,
             'Author' => $request->Author,
+            'Category_Id' => $request->CategoryName
         ]);
         return redirect('/');
     }

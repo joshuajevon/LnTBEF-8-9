@@ -14,5 +14,12 @@ class Book extends Model
         'PublicationDate',
         'Stock',
         'Author',
+        'Category_Id'
     ];
+
+    // 1 kategori
+    public function category(){
+        return $this->belongsTo(Category::class, 'Category_Id');
+    }
+
 }
