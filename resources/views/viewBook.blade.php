@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Book</a>
@@ -24,13 +23,13 @@
                 <a class="nav-link" href="/create-book">Create</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/view-book">View Book</a>
+                <a class="nav-link active" href="/view-book">View Book</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/view-buyer">View buyer</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/create-category">Create Category</a>
+                <a class="nav-link" href="/create-category">Create Category</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -41,17 +40,33 @@
         </div>
       </nav>
 
-    <div class="m-5">
-      <h1>Create Category</h1>
-        <form action="/store-category" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Category Name</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="CategoryName">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
+      <div class="m-5">
+        <h1>View Book</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Buyer</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach ($books as $book)
+              <tr>
+                  <td>{{$loop->iteration}}</td>
+                  <td>{{$book->Name}}</td>
+                  <td>{{$book->Stock}}</td>
+                  <td>
+                      @foreach ($book->buyers as $item)
+                          - {{$item->BuyerName}} <br>
+                      @endforeach
+                  </td>
+              </tr>
+              @endforeach
+          </tbody>
+        </table>
+      </div>
 
 </body>
 </html>

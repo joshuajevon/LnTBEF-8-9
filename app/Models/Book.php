@@ -22,4 +22,8 @@ class Book extends Model
         return $this->belongsTo(Category::class, 'Category_Id');
     }
 
+    public function buyers(){
+        return $this->belongsToMany(Buyer::class, 'book_buyer', 'book_id', 'buyer_id');
+    }
+
 }

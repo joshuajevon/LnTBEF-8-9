@@ -50,4 +50,9 @@ class BookController extends Controller
         return redirect('/');
     }
 
+    public function viewBook(){
+        $books = Book::all();
+        return view('viewBook', compact('books'));
+    }
+
 }

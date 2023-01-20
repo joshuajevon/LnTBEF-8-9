@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,7 @@ Route::delete('/delete-book/{id}', [BookController::class, 'delete'])->name('del
 Route::get('/create-category', [CategoryController::class, 'createCategory']);
 
 Route::post('/store-category', [CategoryController::class, 'storeCategory']);
+
+Route::get('/view-buyer', [BuyerController::class, 'viewBuyer']);
+
+Route::get('/view-book', [BookController::class, 'viewBook']);
